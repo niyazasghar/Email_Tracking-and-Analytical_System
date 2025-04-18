@@ -15,8 +15,8 @@ import re
 from routers.auth import  get_current_active_superuser, User
 
 IMAP_HOST = "imap.gmail.com"
-IMAP_USER = "afafaaaaaafaf@gmail.com"
-IMAP_PASS = "cfnh jlcu ggmm arlb"
+IMAP_USER = "demo@gmail.com"
+IMAP_PASS = "demo_password"
 
 
 
