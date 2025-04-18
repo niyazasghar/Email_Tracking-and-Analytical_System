@@ -1,0 +1,595 @@
+/* ============================================================ */
+/* ==        FUTURISTIC DARK THEME - CONSOLIDATED CSS        == */
+/* ==          (For Email Sender & Analytics Dashboard)      == */
+/* ============================================================ */
+
+/* --- Base & Theme Variables --- */
+:root {
+  --bg-primary: #0a0f18; /* Deep space blue/black */
+  --bg-secondary: #141a2a; /* Slightly lighter background element */
+  --accent-primary: #00dffc; /* Bright cyan */
+  --accent-secondary: #8a2be2; /* BlueViolet for variation */
+  --text-primary: #e0e0e0; /* Light grey for body text */
+  --text-secondary: #a0a0a0; /* Dimmer text */
+  --text-heading: #ffffff; /* White for headings */
+  --border-color: #333b4a;
+  --success-color: #0f0; /* Neon green */
+  --error-color: #f00; /* Bright red */
+
+  --font-body: 'Roboto', sans-serif;
+  --font-heading: 'Orbitron', sans-serif; /* Techy font */
+}
+
+/* --- Basic Reset & Body Styling --- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body.dark-theme {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  line-height: 1.6;
+  overflow-x: hidden; /* Prevent horizontal scroll */
+  /* Subtle animated gradient background */
+  background: linear-gradient(-45deg, #0a0f18, #101522, #0b101c, #182030);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+}
+
+/* --- Navbar Placeholder Styling (Adjust based on your actual navbar.html) --- */
+.navbar {
+  background-color: rgba(10, 15, 24, 0.8); /* Semi-transparent dark */
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border-color);
+}
+.navbar-brand {
+  font-family: var(--font-heading);
+  color: var(--accent-primary) !important; /* Use important if needed to override Bootstrap */
+  font-weight: 700;
+  text-shadow: 0 0 5px var(--accent-primary);
+}
+.navbar .nav-link {
+  color: var(--text-primary) !important;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+.navbar .nav-link:hover {
+  color: var(--accent-primary) !important;
+  text-shadow: 0 0 3px var(--accent-primary);
+}
+
+/* --- Container Styling --- */
+/* Increased max-width for better dashboard layout */
+.dark-theme .container {
+  max-width: 1400px; /* Wider for dashboards */
+  width: 95%; /* Add some padding on very wide screens */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* --- General Heading Styling (Used on both pages) --- */
+.form-heading {
+  font-family: var(--font-heading);
+  color: var(--text-heading);
+  text-align: center;
+  margin-bottom: 2rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-shadow: 0 0 8px var(--accent-primary);
+  animation: slideInFromTop 0.6s ease-out 0.2s forwards;
+  opacity: 0;
+}
+
+/* --- Form Wrapper (Specific to email.html for contained look) --- */
+.form-wrapper {
+  background-color: var(--bg-secondary);
+  padding: 2.5rem 3rem;
+  border-radius: 10px;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 0 25px rgba(0, 223, 252, 0.1); /* Subtle cyan glow */
+  animation: fadeInScaleUp 0.8s ease-out forwards;
+  opacity: 0; /* Start hidden for animation */
+  max-width: 800px; /* Keep email form constrained */
+  margin-left: auto; /* Center if container is wider */
+  margin-right: auto;
+}
+
+/* --- Input Group Styling (email.html specific structure) --- */
+.input-group-futuristic {
+  margin-bottom: 1.75rem; /* More spacing */
+  opacity: 0; /* Start hidden */
+  animation: fadeInSlideUp 0.5s ease-out forwards;
+}
+/* Stagger animation delays for inputs in email form */
+.input-group-futuristic:nth-child(1) { animation-delay: 0.4s; }
+.input-group-futuristic:nth-child(2) { animation-delay: 0.5s; }
+.input-group-futuristic:nth-child(3) { animation-delay: 0.6s; }
+.input-group-futuristic:nth-child(4) { animation-delay: 0.7s; }
+
+
+/* --- General Form Element Styling (Applies to both pages) --- */
+.form-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--text-secondary);
+  font-weight: 400;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Inputs, Textarea */
+.form-control {
+  background-color: var(--bg-primary); /* Darker than wrapper */
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  padding: 0.8rem 1rem;
+  border-radius: 5px;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  width: 100%; /* Ensure full width */
+}
+
+.form-control::placeholder {
+  color: var(--text-secondary);
+  opacity: 0.7;
+}
+
+.form-control:focus {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  border-color: var(--accent-primary);
+  outline: 0;
+  box-shadow: 0 0 0 3px rgba(0, 223, 252, 0.25), /* Inner glow */
+              0 0 10px rgba(0, 223, 252, 0.3); /* Outer glow */
+}
+
+/* Select Dropdown (Analytics Filter) */
+.form-select {
+  background-color: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  padding: 0.7rem 1rem; /* Adjust padding slightly */
+  border-radius: 5px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23a0a0a0' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e"); /* Custom SVG arrow (grey) */
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 16px 12px;
+  appearance: none; /* Remove default arrow */
+  width: 100%;
+  font-size: 1rem; /* Match input font size */
+  line-height: 1.6; /* Match input line height */
+}
+
+.form-select:focus {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  border-color: var(--accent-primary);
+  outline: 0;
+  box-shadow: 0 0 0 3px rgba(0, 223, 252, 0.25), /* Inner glow */
+              0 0 10px rgba(0, 223, 252, 0.3); /* Outer glow */
+}
+
+/* Date Input - Ensure consistent height/appearance */
+input[type="date"].form-control {
+    line-height: 1.6; /* Adjust line height if needed */
+    padding: 0.7rem 1rem; /* Match select padding */
+}
+
+/* --- Bootstrap Validation Styles Override (Dark Theme) --- */
+.was-validated .form-control:invalid,
+.form-control.is-invalid {
+    border-color: var(--error-color);
+    box-shadow: 0 0 0 3px rgba(255, 0, 0, 0.25);
+}
+.was-validated .form-control:invalid:focus,
+.form-control.is-invalid:focus {
+    border-color: var(--error-color);
+    box-shadow: 0 0 0 3px rgba(255, 0, 0, 0.25),
+                0 0 10px rgba(255, 0, 0, 0.3);
+}
+.invalid-feedback {
+    color: var(--error-color);
+    font-size: 0.8rem;
+    margin-top: 0.3rem;
+}
+
+.was-validated .form-control:valid,
+.form-control.is-valid {
+    border-color: var(--success-color); /* Maybe use a less intense valid color like a green-cyan */
+}
+.was-validated .form-control:valid:focus,
+.form-control.is-valid:focus {
+    border-color: var(--success-color);
+    box-shadow: 0 0 0 3px rgba(0, 255, 0, 0.2);
+}
+.valid-feedback { display: none; } /* Hiding valid feedback by default */
+
+
+/* --- Futuristic Button (Applies to both pages) --- */
+.btn-futuristic {
+  background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+  border: none;
+  color: var(--bg-primary); /* Dark text on bright button */
+  padding: 0.8rem 1.5rem;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  letter-spacing: 1px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.3s ease, background-position 0.4s ease, color 0.3s ease;
+  background-size: 200% auto;
+  position: relative;
+  overflow: hidden;
+  display: inline-flex; /* Use inline-flex for inline behavior */
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  text-decoration: none; /* Remove underline if used as link */
+  vertical-align: middle; /* Align nicely with inputs */
+}
+
+/* Apply animation only if NOT inside a delayed group */
+/* Animation added via .animated-section or specific rules now */
+/*
+.btn-futuristic {
+  opacity: 0;
+  animation: fadeInSlideUp 0.5s ease-out 0.8s forwards;
+}
+*/
+
+.btn-futuristic .btn-text { display: inline-block; }
+.btn-futuristic .btn-icon {
+  display: inline-block;
+  transition: transform 0.3s ease;
+  line-height: 1; /* Prevent icon affecting button height */
+}
+
+.btn-futuristic:hover {
+  background-position: right center; /* Change gradient direction */
+  box-shadow: 0 0 15px var(--accent-primary), 0 0 25px var(--accent-secondary);
+  transform: translateY(-2px);
+  color: #fff; /* Brighter text on hover */
+}
+
+.btn-futuristic:hover .btn-icon {
+  transform: translateX(5px); /* Move arrow/icon on hover */
+}
+
+.btn-futuristic:active {
+  transform: translateY(0px) scale(0.98);
+  box-shadow: 0 0 5px var(--accent-primary), 0 0 10px var(--accent-secondary);
+}
+
+/* --- Status Message Styling (email.html #message div) --- */
+#message .alert {
+  border-radius: 5px;
+  padding: 1rem 1.5rem;
+  font-size: 0.95rem;
+  margin-top: 1.5rem;
+  border: 1px solid;
+  animation: fadeIn 0.5s ease;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+#message .alert-success {
+  background-color: rgba(0, 255, 0, 0.1); /* Neon green background tint */
+  color: #ccffcc; /* Light green text */
+  border-color: var(--success-color);
+  text-shadow: 0 0 3px rgba(0, 255, 0, 0.5);
+}
+
+#message .alert-danger {
+  background-color: rgba(255, 0, 0, 0.1); /* Red background tint */
+  color: #ffcccc; /* Light red text */
+  border-color: var(--error-color);
+  text-shadow: 0 0 3px rgba(255, 0, 0, 0.5);
+}
+
+
+/* ============================================================ */
+/* ==          ANALYTICS DASHBOARD SPECIFIC STYLES           == */
+/* ============================================================ */
+
+/* --- General Animation for Sections --- */
+.animated-section {
+  opacity: 0;
+  animation: fadeInSlideUp 0.6s ease-out forwards;
+}
+
+/* --- Filter Section Styling --- */
+.filter-section {
+  /* Uses .futuristic-card styles */
+  display: flex; /* Helps alignment */
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
+  align-items: flex-end; /* Align items bottom for button */
+  gap: 1rem; /* Spacing between filter elements */
+}
+
+/* Make labels slightly more prominent if needed */
+.filter-section .form-label {
+  color: var(--text-primary);
+  font-weight: 500;
+  font-size: 0.85rem;
+  margin-bottom: 0.4rem; /* Slightly less margin */
+}
+
+/* Adjust button in filter */
+.filter-section .btn-futuristic {
+    padding: 0.7rem 1rem; /* Match input height better */
+    font-size: 0.9rem;
+}
+
+/* --- Futuristic Card Base Styling (Used for Filters, Charts, Table Card) --- */
+.futuristic-card {
+  background-color: var(--bg-secondary);
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2), 0 0 10px rgba(0, 223, 252, 0.05); /* Subtle shadow + glow */
+  overflow: hidden; /* Contain elements */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.futuristic-card:hover {
+   /* transform: translateY(-3px); Optional hover lift */
+   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3), 0 0 15px rgba(0, 223, 252, 0.1);
+}
+
+.futuristic-card .card-header {
+  background-color: rgba(0, 223, 252, 0.05); /* Very subtle accent tint */
+  padding: 0.8rem 1.2rem;
+  border-bottom: 1px solid var(--border-color);
+  color: var(--text-heading);
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  letter-spacing: 0.5px;
+}
+
+.futuristic-card .card-header h5 {
+  margin: 0;
+  font-size: inherit; /* Inherit size from header */
+  font-weight: 600;
+}
+
+.futuristic-card .card-body {
+  padding: 1.5rem;
+  color: var(--text-primary);
+}
+
+/* --- Stat Card Specific Styles (Summary Cards) --- */
+.stat-card {
+  /* Inherits .futuristic-card styles */
+  text-align: center;
+  position: relative; /* For icon positioning */
+}
+
+.stat-card-body {
+   padding: 1.5rem 1rem; /* Adjust padding */
+}
+
+.stat-card-title {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.75rem;
+  font-weight: 500;
+}
+
+.stat-card-value {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--accent-primary);
+  margin-bottom: 0.5rem;
+  line-height: 1.2;
+  font-family: var(--font-heading);
+  text-shadow: 0 0 5px var(--accent-primary);
+}
+
+.stat-card-icon {
+    font-size: 1.8rem;
+    opacity: 0.3;
+    position: absolute;
+    bottom: 10px;
+    right: 15px;
+    line-height: 1;
+}
+
+
+/* --- Chart Container --- */
+.chart-container {
+  position: relative;
+  height: 300px; /* Default height */
+  width: 100%;
+}
+
+
+/* --- Futuristic Table Styling --- */
+.futuristic-table {
+  width: 100%;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+  border-collapse: separate; /* Use separate for border-radius on cells */
+  border-spacing: 0;
+  font-size: 0.9rem;
+}
+
+.futuristic-table thead th {
+  background-color: rgba(0, 223, 252, 0.1); /* Accent tint */
+  color: var(--accent-primary);
+  font-family: var(--font-heading);
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-align: left;
+  padding: 0.9rem 1rem;
+  border-bottom: 2px solid var(--accent-primary);
+  white-space: nowrap; /* Prevent header text wrapping */
+}
+
+/* Rounded corners for first and last header cells */
+.futuristic-table thead th:first-child { border-top-left-radius: 5px; }
+.futuristic-table thead th:last-child { border-top-right-radius: 5px; }
+
+
+.futuristic-table tbody tr {
+  background-color: transparent; /* Use wrapper bg */
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.futuristic-table tbody td {
+  padding: 0.8rem 1rem;
+  vertical-align: middle;
+  border-bottom: 1px solid var(--border-color);
+}
+
+/* Hover effect for table rows */
+.futuristic-table.table-hover tbody tr:hover {
+  background-color: rgba(0, 223, 252, 0.05); /* Light cyan tint on hover */
+  color: var(--text-heading); /* Slightly brighter text */
+}
+
+/* Style for placeholder text */
+.futuristic-table tbody td.text-secondary {
+    color: var(--text-secondary) !important;
+    font-style: italic;
+}
+
+/* Remove bottom border for last row */
+.futuristic-table tbody tr:last-child td { border-bottom: none; }
+
+
+/* ============================================================ */
+/* ==                 ANIMATION KEYFRAMES                    == */
+/* ============================================================ */
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes fadeInScaleUp {
+  from { opacity: 0; transform: scale(0.95) translateY(20px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+@keyframes slideInFromTop {
+   from { opacity: 0; transform: translateY(-30px); }
+   to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInSlideUp {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+
+/* ============================================================ */
+/* ==              RESPONSIVE ADJUSTMENTS                    == */
+/* ============================================================ */
+
+@media (max-width: 992px) { /* Medium devices (tablets, less than 992px) */
+  .stat-card-value {
+    font-size: 1.8rem;
+  }
+  .chart-container {
+    height: 280px;
+  }
+  .form-wrapper { /* Adjust padding for email form */
+    padding: 2rem 2rem;
+  }
+}
+
+@media (max-width: 768px) { /* Small devices (landscape phones, 768px and down) */
+  .container {
+      width: 96%; /* Slightly more space */
+  }
+  .form-wrapper { /* Further adjust padding for email form */
+    padding: 2rem 1.5rem;
+  }
+  .form-heading {
+    font-size: 1.8rem;
+  }
+  .filter-section {
+    padding: 1rem; /* Reduce padding inside filter card */
+  }
+  .filter-section .col-md-2 { /* Stack filter button nicely */
+    width: 100%;
+    margin-top: 0.5rem;
+  }
+  .chart-container {
+    height: 250px;
+  }
+  .futuristic-table {
+    font-size: 0.85rem;
+  }
+  .futuristic-table thead th,
+  .futuristic-table tbody td {
+    padding: 0.7rem 0.8rem;
+  }
+   .stat-card-value {
+    font-size: 1.6rem;
+  }
+  .stat-card-title {
+    font-size: 0.8rem;
+  }
+  .stat-card-icon {
+      font-size: 1.5rem;
+      bottom: 8px;
+      right: 10px;
+  }
+  .futuristic-card .card-body {
+      padding: 1.2rem; /* Reduce body padding */
+  }
+}
+
+@media (max-width: 576px) { /* Extra small devices (portrait phones, less than 576px) */
+  .form-wrapper {
+    padding: 1.5rem 1rem;
+  }
+   .form-heading {
+    font-size: 1.6rem;
+  }
+  /* Make button full width only for email form */
+  .form-wrapper .btn-futuristic {
+    width: 100%;
+    padding: 0.9rem;
+  }
+  /* Adjust button padding for filter button */
+  .filter-section .btn-futuristic {
+      padding: 0.8rem 1rem;
+      width: 100%; /* Make filter button full width too */
+  }
+  .futuristic-card .card-header {
+      font-size: 1rem;
+      padding: 0.7rem 1rem;
+  }
+  .futuristic-card .card-body {
+      padding: 1rem;
+  }
+   .stat-card-value {
+    font-size: 1.5rem;
+  }
+  .stat-card-title {
+    font-size: 0.75rem;
+  }
+   .chart-container {
+    height: 220px;
+  }
+   .futuristic-table {
+    font-size: 0.8rem;
+  }
+   .futuristic-table thead th,
+   .futuristic-table tbody td {
+    padding: 0.6rem 0.5rem;
+  }
+}

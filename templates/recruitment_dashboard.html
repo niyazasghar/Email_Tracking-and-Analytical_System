@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Recruitment Dashboard [Futuristic Interface]</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/static/css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet" />
+</head>
+<body class="dark-theme">
+  <div class="container my-5">
+    <!-- Logout Button (appears at top-right) -->
+    <div class="d-flex justify-content-end mb-3">
+      <button id="logoutBtn" class="btn btn-secondary btn-futuristic">
+        <span class="btn-text">Logout</span>
+        <span class="btn-icon">🚪</span>
+      </button>
+    </div>
+
+    <h2 class="form-heading mb-5">Recruitment Dashboard</h2>
+
+    <!-- 1) Filter Upcoming Recruitments -->
+    <div class="row animated-section mb-4" style="animation-delay: 0.2s;">
+      <div class="col-md-12">
+        <div class="futuristic-card p-4">
+          <div class="card-header">
+            <h5>Check Upcoming Recruitments</h5>
+          </div>
+          <div class="card-body">
+            <form id="upcomingForm" class="row g-3 needs-validation" novalidate>
+              <div class="col-md-4">
+                <label for="upcomingYear" class="form-label">Year</label>
+                <input type="number" class="form-control" id="upcomingYear" placeholder="e.g. 2025" required />
+                <div class="invalid-feedback">Year is required.</div>
+              </div>
+              <div class="col-md-4 d-flex align-items-end">
+                <button class="btn btn-futuristic" type="submit">
+                  <span class="btn-text">Fetch</span>
+                  <span class="btn-icon">🔎</span>
+                </button>
+              </div>
+            </form>
+            <div class="mt-3" id="upcomingMessage"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2) Table to Display Upcoming Recruitments -->
+    <div class="row animated-section" style="animation-delay: 0.4s;">
+      <div class="col-md-12">
+        <div class="futuristic-card p-4">
+          <div class="card-header">
+            <h5>Upcoming Recruitments</h5>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table table-hover futuristic-table" id="upcomingTable">
+                <thead>
+                  <tr>
+                    <th>Company Name</th>
+                    <th>Eligibility Criteria</th>
+                    <th>Selection Process</th>
+                    <th>Package Offered</th>
+                    <th>Role Offered</th>
+                    <th>Recruitment Mode</th>
+                    <th>Job Type</th>
+                    <th>Location</th>
+                    <th>Work Environment</th>
+                    <th>Joining Date</th>
+                    <th>Event Date</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td colspan="11" class="text-center text-secondary">No data</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="/static/js/recruitment_dashboard.js"></script>
+  <script>
+    // Basic Bootstrap form validation
+    (() => {
+      'use strict'
+      const forms = document.querySelectorAll('.needs-validation');
+      Array.from(forms).forEach(form => {
+        form.addEventListener('submit', event => {
+          if (!form.checkValidity()) {
+            event.preventDefault();
+            event.stopPropagation();
+          }
+          form.classList.add('was-validated');
+        }, false);
+      });
+    })();
+  </script>
+</body>
+</html>

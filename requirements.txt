@@ -1,0 +1,16 @@
+fastapi
+uvicorn
+SQLAlchemy
+psycopg2-binary
+pydantic
+python-dotenv
+jinja2
+passlib
+bcrypt
+email-validator
+requests
+pyjwt
+
+
+venv_name\Scripts\activate
+uvicorn main:app --reload

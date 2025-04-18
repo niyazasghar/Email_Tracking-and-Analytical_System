@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Admin Dashboard [Futuristic Interface]</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
+  <!-- Shared Futuristic CSS -->
+  <link rel="stylesheet" href="/static/css/style.css" />
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Roboto:wght@300;400;700&display=swap"
+    rel="stylesheet"
+  />
+</head>
+<body class="dark-theme">
+  <div class="container my-5">
+    <!-- Header with Logout Button -->
+    <div class="d-flex justify-content-between align-items-center mb-5">
+      <h2 class="form-heading m-0">Main Dashboard (Superuser)</h2>
+      <button id="logoutBtn" class="btn btn-secondary btn-futuristic">
+        <span class="btn-text">Logout</span>
+        <span class="btn-icon">🚪</span>
+      </button>
+    </div>
+
+    <!-- Dashboard Buttons (unchanged) -->
+    <div class="row row-cols-1 row-cols-md-2 g-4 animated-section" style="animation-delay: 0.2s;">
+      <!-- Button: Email Tracking -->
+      <div class="col">
+        <div class="futuristic-card p-3 text-center h-100">
+          <button class="btn btn-futuristic w-100" onclick="window.location.href='/send-email'">
+            <span class="btn-text">Send Email / Email Tracking</span>
+            <span class="btn-icon">📧</span>
+          </button>
+        </div>
+      </div>
+      <!-- Button: Analytics -->
+      <div class="col">
+        <div class="futuristic-card p-3 text-center h-100">
+          <button class="btn btn-futuristic w-100" onclick="window.location.href='/analytics'">
+            <span class="btn-text">Analytics</span>
+            <span class="btn-icon">📊</span>
+          </button>
+        </div>
+      </div>
+      <!-- Button: Automatic Follow-Up -->
+      <div class="col">
+        <div class="futuristic-card p-3 text-center h-100">
+          <button class="btn btn-futuristic w-100" onclick="window.location.href='/followups'">
+            <span class="btn-text">Automatic Follow-Up</span>
+            <span class="btn-icon">↩️</span>
+          </button>
+        </div>
+      </div>
+      <!-- Button: Status Management -->
+      <div class="col">
+        <div class="futuristic-card p-3 text-center h-100">
+          <button class="btn btn-futuristic w-100" onclick="window.location.href='/status-management'">
+            <span class="btn-text">Status Management</span>
+            <span class="btn-icon">⚙️</span>
+          </button>
+        </div>
+      </div>
+      <!-- Button: Placed Students Dashboard -->
+      <div class="col">
+        <div class="futuristic-card p-3 text-center h-100">
+          <button class="btn btn-futuristic w-100" onclick="window.location.href='/placed-student'">
+            <span class="btn-text">Placed Students</span>
+            <span class="btn-icon">🎓</span>
+          </button>
+        </div>
+      </div>
+      <!-- Button: Management Dashboard -->
+      <div class="col">
+        <div class="futuristic-card p-3 text-center h-100">
+          <button class="btn btn-futuristic w-100" onclick="window.location.href='/management-dashboard'">
+            <span class="btn-text">Management Dashboard</span>
+            <span class="btn-icon">🛠️</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Include the JavaScript file -->
+  <script src="/static/js/superuser_dashboard.js"></script>
+</body>
+</html>
